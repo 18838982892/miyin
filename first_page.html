@@ -1,13 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./js/jQuery.js"></script>
+    <link rel="stylesheet" href="./css/first_page.css">
+    <link rel="stylesheet" href="./css/swipeslider.css">
+    <script src="./js/jquery-2.1.1.min.js"></script>
     <script src="./js/doT.min.js"></script>
+    <script src="./js/swipeslider.min.js"></script>
 </head>
+
 <body>
-    
+    <div class="first_page_top">
+        <p><a href="">我的</a> </p>
+        <p>音乐馆</p>
+        <p>发现</p>
+    </div>
+    <div class="banner">
+        <figure id="full_feature" class="swipslider">
+            <ul class="sw-slides">
+                <li class="sw-slide">
+                    <img src="./img/home-1.png" alt="Summer beach concept">
+                </li>
+                <li class="sw-slide">
+                    <img src="./img/home-2.jpg" alt="Lang from Yie Ar Kung Fu">
+                </li>
+                <li class="sw-slide">
+                    <img src="./img/home-3.jpg" alt="Tiny Tina">
+                </li>
+            </ul>
+        </figure>
+    </div>
+    <div class="list">
+        <img src="./img/4@2x.png">
+        <img src="./img/5@2x.png">
+        <img src="./img/6@2x.png">
+        <img src="./img/7@2x.png">
+        <img src="./img/8@2x.png">
+        <span>歌手</span>
+        <span>专辑</span>
+        <span>排行</span>
+        <span>电台</span>
+        <span>歌单</span>
+    </div>
+    <div class="song_list">
+        <p>精选歌单</p>
+        <p>最新</p>
+        <p>推荐</p>
+    </div>
+    <div id="song_list"></div>
+    <div class="change">
+        <p>Where Is Your Love</p>
+        <p>横划可以切换上下首哦</p>
+        <span></span>
+        <span></span>
+    </div>
+    <script type="text/javascript">
+        function setRem() {
+            var ui = 750;
+            var winWid = document.documentElement.clientWidth || document.body.clientWidth;
+            console.log(ui, winWid)
+            document.getElementsByTagName('html')[0].style.fontSize = (winWid / ui) * 100 + 'px';
+        }
+        window.onresize = setRem;
+        $(window).load(function () {
+            $('#full_feature').swipeslider();
+        })
+        $.get('http://192.168.1.45:3000/home', {
+            type: 'new'
+        }, function (e) {
+            console.log(e);
+            var tmpText = doT.template(document.getElementById('li_tpl').innerText);
+            document.getElementById('song_list').innerHTML = tmpText(e.musicList);
+        })
+    </script>
+    <script id="li_tpl" type="text/x-dot-template">
+        {{~it:value:index}}
+            <div>
+                <img src="{{=value.imgurl}}" alt="">
+                <p>{{=value.info}}</p>
+                <p>{{=value.title}}</p>
+            </div>
+        {{~}}
+    </script>
 </body>
+
 </html>
