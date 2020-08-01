@@ -52,12 +52,17 @@
     </div>
     <div id="song_list"></div>
     <div class="change">
-        <p>Where Is Your Love</p>
+        <p>相思成灾</p>
         <p>横划可以切换上下首哦</p>
-        <span></span>
-        <span></span>
+        <span onclick="playAdu()" class="audio_1"></span>
+        <span onclick="pauseAdu()" class="audio_2" style="display: none;"></span>
+        <span class="audio_list"></span>
+        <audio id="myaudio">
+            <source src="./音频/郑亦辰 - 相思成灾.mp3" type="audio/mp3" />
+        </audio>
     </div>
     <script type="text/javascript">
+        // 获取屏幕宽高变化的font—size
         function setRem() {
             var ui = 750;
             var winWid = document.documentElement.clientWidth || document.body.clientWidth;
@@ -65,6 +70,23 @@
             document.getElementsByTagName('html')[0].style.fontSize = (winWid / ui) * 100 + 'px';
         }
         window.onresize = setRem;
+
+        // 音频播放
+        var myaudio = document.getElementById("myaudio");
+        var play_b = document.getElementsByClassName('audio_1')[0];
+        var pause_b = document.getElementsByClassName('audio_2')[0];
+        function playAdu() {
+            myaudio.play();
+            play_b.style.display = 'none'
+            pause_b.style.display = 'block'
+        }
+        function pauseAdu() {
+            myaudio.pause();
+            play_b.style.display = 'block'
+            pause_b.style.display = 'none'
+        }
+
+        // jQuery ajax请求
         $(window).load(function () {
             $('#full_feature').swipeslider();
         })
