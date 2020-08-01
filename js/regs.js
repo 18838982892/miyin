@@ -48,7 +48,7 @@ touch.on($("#regs1"),"tap",function(){
 
             setTimeout(function(){
                 location.href="./login.html";
-            },1000)
+            },2000)
         })
        
     }

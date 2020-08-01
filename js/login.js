@@ -44,7 +44,7 @@ touch.on($("#login"), "tap", function () {
                 layer.msg(e.msg);
                 setTimeout(function(){
                     location.href="./first_page.html";
-                },1000)
+                },2000)
             }else{
                 layer.msg(e.msg)
             }
