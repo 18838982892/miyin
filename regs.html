@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -8,13 +9,12 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/regs.css">
-    <script src=""></script>
 </head>
 <body>
-     <!-- 头部导航 -->
-     <div class="nav">
+    <!-- 头部导航 -->
+    <div class="nav">
         <div>
-            <img src="./img/img/login-one.png" alt="">
+            <img src="./img/img/login-one.png" alt="" id="back">
         </div>
         <div>帮助</div>
     </div>
@@ -25,19 +25,23 @@
     <!-- 账号部分 -->
     <div class="main">
         <div class="user">
-            <input type="text"placeholder="请输入手机号"class="two">
+            <input type="text" placeholder="请输入手机号" class="" id="phone">
         </div>
         <div>
-            <input type="text"placeholder="请输入验证码">
+            <input type="text" placeholder="请输入验证码" class="three"id="yanzheng">
         </div>
         <div class="pass">
-            <input type="password"placeholder="请输入密码">
+            <input type="password" placeholder="请输入密码" id="password">
         </div>
     </div>
     <!-- 3logo部分 -->
     <div class="logo3">
-        <img src="./img/img/login-three.png" alt="">
+        <img src="./img/img/login-three.png" alt=""id="regs1">
     </div>
     <p class="zhuce">注册即代表同意迷音服务条款和隐私条款</p>
 </body>
+<script src="./js/jQuery.js"></script>
+<script src="./js/layer-v3.1.1/layer/layer.js"></script>
+<script src="./js/touch.js"></script>
+<script src="./js/regs.js"></script>
 </html>

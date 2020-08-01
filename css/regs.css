@@ -3,3 +3,7 @@
   padding: 15.6rem;
   color: #999999;
 }
+.three {
+  background: url('../img/img/register-two.png') no-repeat 48rem 10rem;
+  background-size: 20%;
+}
